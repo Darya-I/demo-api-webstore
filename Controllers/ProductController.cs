@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApiDemo_ML_lesson.Data;
 using WebApiDemo_ML_lesson.Models;
 
 namespace WebApiDemo_ML_lesson.Controllers
 {
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Route("api/[controller]")]                                             //api/ProductController
     [ApiController]
     public class ProductController : ControllerBase
